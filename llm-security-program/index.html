@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LLM Security Program · Ramya Kanderi</title>
+<meta name="description" content="Case study: an AI/LLM application security program with guardrails and adversarial testing.">
+<meta property="og:title" content="LLM Security Program · Ramya Kanderi">
+<meta property="og:description" content="Case study: an AI/LLM application security program with guardrails and adversarial testing.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single reading column, case-study sheet — header block, metric strip, diagram plate, two-column detail */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202b; --muted:#566273; --line:#dbe0e7;
+  --accent:#1f5f8b; --accent-soft:#e6eff6; --good:#1d7a52;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:40px 64px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);max-width:65ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.metric{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.metric .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--good);font-variant-numeric:tabular-nums}
+.metric .l{font-size:14px;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.plate{background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}
+.plate img{display:block;width:100%;min-width:640px;height:auto}
+figcaption{font-size:14px;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 10px;letter-spacing:-.005em}
+section p{margin:0 0 14px;max-width:65ch}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.side{display:flex;flex-direction:column;gap:28px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--fg)}
+dl.ref{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+dl.ref dt{font-family:var(--mono);color:var(--accent);font-size:13px}
+dl.ref dd{margin:0;color:var(--fg)}
+.back{font-size:14px;color:var(--accent);text-decoration:none;font-weight:500}.back:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+  <header>
+    <a class="back" href="../">← All projects</a>
+    <span class="eyebrow">Case study · AI security · LLM applications</span>
+    <h1>AI/LLM Application Security Program</h1>
+    <p class="lede">Threat-modeled controls, runtime guardrails and automated adversarial testing for LLM-powered applications at a biotech company.</p>
+    <div class="meta"><span>Industry <b>Biotechnology</b></span><span>Role <b>Senior AppSec Engineer, AI security</b></span><span>Period <b>2025 – 2026</b></span></div>
+  </header>
+  <div class="metrics"><div class="metric"><span class="n">3</span><span class="l">frameworks mapped: OWASP LLM Top 10, MITRE ATLAS, NIST AI RMF</span></div><div class="metric"><span class="n">2</span><span class="l">guardrail layers wrapping the LLM app: input and output</span></div><div class="metric"><span class="n">CI/CD</span><span class="l">adversarial prompt testing before every release</span></div></div>
+  <figure>
+    <div class="plate"><img src="../assets/llm-security-program.png" alt="Architecture: prompt, model or code changes pass an AI-driven adversarial test harness and release gate; the LLM app is wrapped by input and output guardrails whose logs feed Microsoft Sentinel KQL detections."></div>
+    <figcaption>Changes ship only after the adversarial test harness passes. At runtime, input and output guardrails wrap the LLM app, and their logs feed custom KQL detections in Microsoft Sentinel.</figcaption>
+  </figure>
+  <div class="cols">
+    <section>
+      <h2>What I built</h2>
+      <p>The company was moving LLM features built on Azure OpenAI and LangChain into production, including agentic and retrieval-augmented (RAG) workflows. I built the security program around them, starting from a threat model rather than a tool list.</p><p>Threats were mapped to the OWASP LLM Top 10 and MITRE ATLAS, and controls to the NIST AI RMF. Runtime guardrails filter inputs for prompt injection and check outputs for sensitive data leakage and unsafe content before it reaches users or downstream systems.</p><p>An AI-driven test harness runs adversarial prompt suites against every prompt, model and code change in CI/CD, so regressions are caught before release. Guardrail events feed custom KQL detections in Microsoft Sentinel for real-time alerting.</p>
+      <h2 style="margin-top:22px">My role</h2>
+      <ul class="plain"><li>Led threat modeling for agentic and RAG workflows</li><li>Designed and implemented runtime guardrails</li><li>Built the adversarial test harness and Sentinel detections</li><li>Wrote NIST AI RMF-aligned governance for compliance stakeholders</li></ul>
+    </section>
+    <aside class="side">
+      <div><h2>Risks addressed</h2><dl class="ref"><dt>LLM01</dt><dd>Prompt injection</dd><dt>LLM02</dt><dd>Sensitive information disclosure</dd><dt>LLM05</dt><dd>Improper output handling</dd></dl></div>
+      <div><h2>Skills</h2><div class="tags"><span class="tag">AI Security</span><span class="tag">LLM Security</span><span class="tag">Azure OpenAI</span><span class="tag">LangChain</span><span class="tag">Threat Modeling</span><span class="tag">OWASP LLM Top 10</span><span class="tag">MITRE ATLAS</span><span class="tag">NIST AI RMF</span><span class="tag">Microsoft Sentinel</span><span class="tag">KQL</span><span class="tag">Python</span></div></div>
+    </aside>
+  </div>
+  <footer>Ramya Kanderi · Senior Application Security &amp; DevSecOps Engineer · Client details are generalized to respect confidentiality.</footer>
+</div>
+
+</body>
+</html>

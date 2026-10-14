@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ramya Kanderi · AppSec &amp; DevSecOps Portfolio</title>
+<meta name="description" content="Application security and DevSecOps portfolio of Ramya Kanderi.">
+<meta property="og:title" content="Ramya Kanderi · Ramya Kanderi">
+<meta property="og:description" content="Application security and DevSecOps portfolio of Ramya Kanderi.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single reading column, case-study sheet — header block, metric strip, diagram plate, two-column detail */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202b; --muted:#566273; --line:#dbe0e7;
+  --accent:#1f5f8b; --accent-soft:#e6eff6; --good:#1d7a52;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:40px 64px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);max-width:65ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.metric{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.metric .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--good);font-variant-numeric:tabular-nums}
+.metric .l{font-size:14px;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.plate{background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}
+.plate img{display:block;width:100%;min-width:640px;height:auto}
+figcaption{font-size:14px;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 10px;letter-spacing:-.005em}
+section p{margin:0 0 14px;max-width:65ch}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.side{display:flex;flex-direction:column;gap:28px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--fg)}
+dl.ref{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+dl.ref dt{font-family:var(--mono);color:var(--accent);font-size:13px}
+dl.ref dd{margin:0;color:var(--fg)}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:24px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s}
+.card:hover,.card:focus-visible{border-color:var(--accent)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.thumb{background:#fff;border-bottom:1px solid var(--line);padding:10px;aspect-ratio:16/7;display:flex;align-items:center;max-width:100%}
+.thumb img{width:100%;height:100%;object-fit:contain}
+.cbody{padding:20px 22px;display:flex;flex-direction:column;gap:8px}
+.cbody h2{margin:0}.cbody p{margin:0;color:var(--muted);font-size:15px}
+.more{font-size:14px;font-weight:600;color:var(--accent)}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:13px}
+.contact a{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}</style>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Portfolio</span>
+    <h1>Ramya Kanderi</h1>
+    <p class="lede">Senior Application Security and DevSecOps Engineer with 8+ years securing software at enterprise scale, from CI/CD security gates to AI and LLM application security.</p>
+    <div class="contact"><a href="https://www.linkedin.com/in/ramya-kanderi">linkedin.com/in/ramya-kanderi</a><span>Plano, TX</span></div>
+  </header>
+  <div class="cards"><a class="card" href="cicd-security-gates/"><div class="thumb"><img src="assets/cicd-security-gate.png" alt="Architecture diagram for Enterprise CI/CD Security Gate Platform"></div><div class="cbody"><span class="eyebrow">Telecommunications · 2022–2025</span><h2>Enterprise CI/CD Security Gate Platform</h2><p>Policy-driven SAST, SCA, secrets and container gates across 300+ application pipelines. 74% fewer critical CVEs, 60% fewer false positives.</p><span class="more">Read case study →</span></div></a><a class="card" href="llm-security-program/"><div class="thumb"><img src="assets/llm-security-program.png" alt="Architecture diagram for AI/LLM Application Security Program"></div><div class="cbody"><span class="eyebrow">Biotechnology · 2025–2026</span><h2>AI/LLM Application Security Program</h2><p>Threat-modeled controls, runtime guardrails and automated adversarial testing for Azure OpenAI and LangChain applications.</p><span class="more">Read case study →</span></div></a></div>
+  <footer>Client details are generalized to respect confidentiality.</footer>
+</div>
+</body>
+</html>
