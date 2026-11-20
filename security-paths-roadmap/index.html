@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Security Engineer Paths × Layers · Ramya Kanderi</title>
+<meta name="description" content="An interactive roadmap mapping five security engineering paths across eight maturity layers, from foundations to architecture and AI security.">
+<meta property="og:title" content="Security Engineer Paths × Layers · Ramya Kanderi">
+<meta property="og:description" content="An interactive roadmap mapping five security engineering paths across eight maturity layers, from foundations to architecture and AI security.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single reading column, case-study sheet — header block, metric strip, diagram plate, two-column detail */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202b; --muted:#566273; --line:#dbe0e7;
+  --accent:#1f5f8b; --accent-soft:#e6eff6; --good:#1d7a52;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:40px 64px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);max-width:65ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.metric{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.metric .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--good);font-variant-numeric:tabular-nums}
+.metric .l{font-size:14px;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.plate{background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}
+.plate img{display:block;width:100%;min-width:640px;height:auto}
+figcaption{font-size:14px;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 10px;letter-spacing:-.005em}
+section p{margin:0 0 14px;max-width:65ch}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.side{display:flex;flex-direction:column;gap:28px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--fg)}
+dl.ref{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+dl.ref dt{font-family:var(--mono);color:var(--accent);font-size:13px}
+dl.ref dd{margin:0;color:var(--fg)}
+.meta a{color:var(--accent);font-weight:500}
+.back{font-size:14px;color:var(--accent);text-decoration:none;font-weight:500}.back:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+  <header>
+    <a class="back" href="../">← All projects</a>
+    <span class="eyebrow">Interactive roadmap · Career development · Security engineering</span>
+    <h1>Security Engineer Paths × Layers (V1 → V8)</h1>
+    <p class="lede">An interactive roadmap that maps five security engineering specializations across eight maturity layers, from foundations to architecture and AI security. Read it bottom-up: each layer builds on the one below.</p>
+    <div class="meta"><span>Type <b>Interactive roadmap</b></span><span>Stack <b>HTML · JavaScript · JSON</b></span><span>Published <b>2026</b></span><span><a href="https://mail2ramya17.github.io/security-engineer-paths/">Open the live roadmap →</a></span><span><a href="https://github.com/mail2ramya17/security-engineer-paths">View code on GitHub →</a></span></div>
+  </header>
+  <div class="metrics"><div class="metric"><span class="n">5</span><span class="l">paths: AppSec, Cloud Security, DevSecOps, Offensive / Red and Defensive / Blue</span></div><div class="metric"><span class="n">8</span><span class="l">maturity layers, from Foundations to Architecture &amp; AI</span></div><div class="metric"><span class="n">40</span><span class="l">skills and tools placed in one grid</span></div></div>
+  <figure>
+    <div class="plate"><img src="../assets/security-engineer-paths.png" alt="Grid with five columns (AppSec, Cloud Security, DevSecOps, Offensive / Red, Defensive / Blue) and eight rows from V1 Foundations to V8 Architecture and AI. Each cell names the skill or tool for that path at that layer, for example V1 AppSec HTTP, TLS and OWASP Top 10, and V8 AppSec LLM and AI application security."></div>
+    <figcaption>Columns are specialization paths and rows are maturity layers. Go deep in one column, stay broad across V1 to V4, and converge at V7 and V8, where threat-led engineering and architecture tie the paths together.</figcaption>
+  </figure>
+  <div class="cols">
+    <section>
+      <h2>What I built</h2>
+      <p>Security career advice is usually either a flat list of tools or a single-track roadmap. In practice, AppSec, Cloud Security, DevSecOps, red teams and blue teams grow through the same maturity stages, just with different tools at each stage. This grid puts them side by side.</p><p>Engineers can see where they are today in each path, spot the adjacent skill one layer up, and see how the paths connect. For example, IaC scanning in DevSecOps links to cloud guardrails and to cloud penetration testing. Click a layer to stack it, click a cell for detail, or press Play to animate V1 to V8.</p><p>All content lives in a single JSON file, so the roadmap can be updated or extended without touching the interface. It is one HTML file with no dependencies, hosted free on GitHub Pages.</p>
+      <h2 style="margin-top:22px">Highlights</h2>
+      <ul class="plain"><li>Five paths and eight layers on one screen, read bottom-up</li><li>Interactive: stack layers, inspect cells, animate the progression</li><li>Data-driven from <code>roadmap.json</code>, so contributions are a one-file pull request</li><li>Zero dependencies and free hosting</li></ul>
+    </section>
+    <aside class="side">
+      <div><h2>Layers</h2><dl class="ref"><dt>V8</dt><dd>Architecture &amp; AI</dd><dt>V7</dt><dd>Threat-led engineering</dd><dt>V6</dt><dd>Identity &amp; Zero Trust</dd><dt>V5</dt><dd>Supply chain</dd><dt>V4</dt><dd>Cloud &amp; platform</dd><dt>V3</dt><dd>Test &amp; automate</dd><dt>V2</dt><dd>Secure build</dd><dt>V1</dt><dd>Foundations</dd></dl></div>
+      <div><h2>Skills</h2><div class="tags"><span class="tag">Application Security</span><span class="tag">Cloud Security</span><span class="tag">DevSecOps</span><span class="tag">Red Team</span><span class="tag">Blue Team</span><span class="tag">AI Security</span><span class="tag">Mentoring</span><span class="tag">JavaScript</span><span class="tag">GitHub Pages</span></div></div>
+    </aside>
+  </div>
+  <footer>Ramya Kanderi · Senior Application Security &amp; DevSecOps Engineer</footer>
+</div>
+
+</body>
+</html>
