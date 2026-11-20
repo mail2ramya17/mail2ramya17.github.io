@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Security Engineer Toolkit · Ramya Kanderi</title>
+<meta name="description" content="Four security tools for the AI era, each a CI gate: findings triage, AI threat modeling as code, AI coding-assistant governance and OWASP LLM coverage.">
+<meta property="og:title" content="AI Security Engineer Toolkit · Ramya Kanderi">
+<meta property="og:description" content="Four security tools for the AI era, each a CI gate: findings triage, AI threat modeling as code, AI coding-assistant governance and OWASP LLM coverage.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single reading column, case-study sheet — header block, metric strip, diagram plate, two-column detail */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202b; --muted:#566273; --line:#dbe0e7;
+  --accent:#1f5f8b; --accent-soft:#e6eff6; --good:#1d7a52;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:40px 64px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);max-width:65ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.metric{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.metric .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--good);font-variant-numeric:tabular-nums}
+.metric .l{font-size:14px;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.plate{background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}
+.plate img{display:block;width:100%;min-width:640px;height:auto}
+figcaption{font-size:14px;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 10px;letter-spacing:-.005em}
+section p{margin:0 0 14px;max-width:65ch}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.side{display:flex;flex-direction:column;gap:28px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--fg)}
+dl.ref{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+dl.ref dt{font-family:var(--mono);color:var(--accent);font-size:13px}
+dl.ref dd{margin:0;color:var(--fg)}
+.meta a{color:var(--accent);font-weight:500}
+.back{font-size:14px;color:var(--accent);text-decoration:none;font-weight:500}.back:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+  <header>
+    <a class="back" href="../">← All projects</a>
+    <span class="eyebrow">Open-source tooling · AI security · Security automation</span>
+    <h1>AI Security Engineer Toolkit</h1>
+    <p class="lede">Shift left, stay right, and automate everything in between. One command-line tool with four tools for the security engineer's job in the AI era: secure the AI, use AI to secure, and build the tools in between.</p>
+    <div class="meta"><span>Type <b>Open-source tool</b></span><span>Stack <b>Python · YAML · SARIF · GitHub Actions</b></span><span>Published <b>2026</b></span><span><a href="https://github.com/mail2ramya17/ai-security-engineer-toolkit">View code on GitHub →</a></span></div>
+  </header>
+  <div class="metrics"><div class="metric"><span class="n">500 → 12</span><span class="l">raw scanner findings reduced to 12 risk-ranked fixes with draft PRs</span></div><div class="metric"><span class="n">36</span><span class="l">STRIDE and AI-specific threats generated for an AI agent model</span></div><div class="metric"><span class="n">10/10</span><span class="l">OWASP LLM Top 10 risks mapped to an implemented control</span></div></div>
+  <figure>
+    <div class="plate"><img src="../assets/ai-security-engineer-toolkit.png" alt="Architecture: scanner SARIF and threat intel feed aisec triage, which drafts fixes and opens 12 draft PRs for human review and posts a summary to Teams or Slack. A YAML model of an AI agent feeds aisec threatmodel and aisec owasp, which share a control catalog and produce reports. Repository AI-assistant configuration feeds aisec assistants, which uploads SARIF to GitHub code scanning. Open high-severity threats or policy violations fail the build."></div>
+    <figcaption>Four tools share one control catalog. Triage turns scanner noise into a handful of reviewed fixes. The threat model and OWASP coverage work from the same YAML description of an AI agent. The assistant checker governs how AI coding tools are configured. Every tool can fail the build.</figcaption>
+  </figure>
+  <div class="cols">
+    <section>
+      <h2>What I built</h2>
+      <p>The security engineer's job now spans eight areas, and AI shows up in every one of them. This toolkit covers the parts that are hardest to do by hand and easiest to automate.</p><p><b>Triage</b> reads SARIF from any scanner and removes duplicates across tools and nightly runs. It then ranks each issue by severity, by whether the vulnerability is known to be exploited (CISA KEV), how likely exploitation is (EPSS), and whether the vulnerable code is actually reachable. For the top issues it drafts a fix and a pull request. A model may draft the fix, but every PR opens as a draft that a human must review.</p><p><b>Threat modeling as code</b> describes an AI agent's data flows and trust boundaries in YAML and walks STRIDE across them, plus AI-specific threats mapped to OWASP and MITRE ATLAS. A missing control fails the build, a typo in a control is an error rather than a silent pass, and accepted risks expire. <b>Assistant governance</b> checks how Copilot, Claude Code, Cursor and similar tools are configured: allow-listed and pinned MCP servers, no secrets in prompt files, required exclusions, and no auto-approve modes.</p>
+      <h2 style="margin-top:22px">Highlights</h2>
+      <ul class="plain"><li>Duplicates collapse across Semgrep and CodeQL using CWE plus location, not rule ids</li><li>Accepts the real FIRST EPSS and CISA KEV data formats</li><li>SARIF output for GitHub code scanning</li><li>Reference secure pipeline: secrets, SAST, SCA, IaC, container, DAST, SBOM and keyless signing</li></ul>
+    </section>
+    <aside class="side">
+      <div><h2>Tools</h2><dl class="ref"><dt>triage</dt><dd>CVSS · EPSS · KEV · reachability</dd><dt>threatmodel</dt><dd>STRIDE · OWASP LLM · ATLAS</dd><dt>assistants</dt><dd>MCP allow-list · prompt secrets</dd><dt>owasp</dt><dd>LLM01–LLM10 coverage</dd><dt>pipeline</dt><dd>Reference secure CI/CD</dd></dl></div>
+      <div><h2>Skills</h2><div class="tags"><span class="tag">AI Security</span><span class="tag">Threat Modeling</span><span class="tag">STRIDE</span><span class="tag">MITRE ATLAS</span><span class="tag">OWASP LLM Top 10</span><span class="tag">MCP Security</span><span class="tag">Vulnerability Management</span><span class="tag">EPSS · KEV</span><span class="tag">SARIF</span><span class="tag">DevSecOps</span><span class="tag">Python</span><span class="tag">GitHub Actions</span></div></div>
+    </aside>
+  </div>
+  <footer>Ramya Kanderi · Senior Application Security &amp; DevSecOps Engineer · Demo CVE ids (CVE-2099-*) and sample data are synthetic.</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>End-to-End GenAI Delivery · Ramya Kanderi</title>
+<meta name="description" content="A secure RAG copilot built end to end: use-case scoring, per-user access control, guardrails, an AI gateway and an evaluation release gate.">
+<meta property="og:title" content="End-to-End GenAI Delivery · Ramya Kanderi">
+<meta property="og:description" content="A secure RAG copilot built end to end: use-case scoring, per-user access control, guardrails, an AI gateway and an evaluation release gate.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single reading column, case-study sheet — header block, metric strip, diagram plate, two-column detail */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202b; --muted:#566273; --line:#dbe0e7;
+  --accent:#1f5f8b; --accent-soft:#e6eff6; --good:#1d7a52;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:40px 64px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);max-width:65ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.metric{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.metric .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--good);font-variant-numeric:tabular-nums}
+.metric .l{font-size:14px;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.plate{background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}
+.plate img{display:block;width:100%;min-width:640px;height:auto}
+figcaption{font-size:14px;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 10px;letter-spacing:-.005em}
+section p{margin:0 0 14px;max-width:65ch}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.side{display:flex;flex-direction:column;gap:28px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--fg)}
+dl.ref{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+dl.ref dt{font-family:var(--mono);color:var(--accent);font-size:13px}
+dl.ref dd{margin:0;color:var(--fg)}
+.meta a{color:var(--accent);font-weight:500}
+.back{font-size:14px;color:var(--accent);text-decoration:none;font-weight:500}.back:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+  <header>
+    <a class="back" href="../">← All projects</a>
+    <span class="eyebrow">Reference implementation · AI/LLM security · LLMOps</span>
+    <h1>End-to-End GenAI Delivery: Secure RAG Copilot</h1>
+    <p class="lede">A security engineer's playbook for taking a GenAI idea from ideation to production, built as working code. Guardrails, governance and evaluation are designed in from step one, not bolted on at the end.</p>
+    <div class="meta"><span>Type <b>Open-source reference build</b></span><span>Stack <b>Python · FastAPI · Terraform · GitHub Actions</b></span><span>Published <b>2026</b></span><span><a href="https://github.com/mail2ramya17/genai-delivery-playbook">View code on GitHub →</a></span></div>
+  </header>
+  <div class="metrics"><div class="metric"><span class="n">6</span><span class="l">release-gate metrics: groundedness, relevance, safety, jailbreak, latency, cost</span></div><div class="metric"><span class="n">33</span><span class="l">evaluation cases, including 15 attacks and a poisoned knowledge-base article</span></div><div class="metric"><span class="n">0</span><span class="l">documents a user can retrieve without the matching access group</span></div></div>
+  <figure>
+    <div class="plate"><img src="../assets/genai-delivery-playbook.png" alt="Architecture: an employee signs in, the request passes input guardrails, ACL-trimmed retrieval from a vector index whose chunks keep their access labels, an AI gateway with quotas and audit logging, the LLM, and output guardrails before an answer with citations is returned. Violations are blocked and logged, the gateway writes an audit log to the SIEM, and a CI release gate must pass before production."></div>
+    <figcaption>Every request passes input guardrails, retrieval filtered by the user's own access groups, an AI gateway and output guardrails. Violations are blocked and logged. Separately, every prompt or model change must pass the evaluation gate before it reaches production.</figcaption>
+  </figure>
+  <div class="cols">
+    <section>
+      <h2>What I built</h2>
+      <p>Most GenAI projects fail on the same things: the wrong use case, retrieval that leaks documents across permissions, and releases with no evidence of quality or safety. This project follows one IT-support copilot through every phase of delivery, and each phase is backed by code.</p><p>A scoring tool ranks candidate use cases on value, feasibility, risk and data readiness, and rejects any that fail a governance check. In the copilot, documents keep their access labels through ingestion, and the access filter runs inside the search call, so the same question gets a different answer for an employee than for someone in finance. Guardrails block direct and indirect prompt injection and redact personal data. Output must be valid JSON citing only retrieved sources. Every model call goes through a gateway that enforces token quotas, falls back to a second model, tracks cost, and writes a redacted audit log.</p><p>The release gate runs 18 normal questions and 15 attacks and checks six metrics against agreed thresholds. The test model is deliberately naive: it leaks its prompt and obeys hidden instructions. Switch the guardrails off and the gate fails, which is itself an automated test.</p>
+      <h2 style="margin-top:22px">Highlights</h2>
+      <ul class="plain"><li>Per-user access control that fails closed: no labels or no identity means no documents</li><li>Indirect-injection screening tested with a planted, poisoned knowledge-base article</li><li>Evaluation gate in CI alongside SAST, secret and IaC scanning</li><li>Azure Terraform with private endpoints, managed identity and no API keys</li></ul>
+    </section>
+    <aside class="side">
+      <div><h2>Controls</h2><dl class="ref"><dt>Govern</dt><dd>Use-case scoring · governance checks</dd><dt>Access</dt><dd>Per-user ACL trimming</dd><dt>Guard</dt><dd>Injection · PII · output validation</dd><dt>Gateway</dt><dd>Quotas · fallback · audit log</dd><dt>Evaluate</dt><dd>6-metric release gate</dd><dt>Infra</dt><dd>Private endpoints · managed identity</dd></dl></div>
+      <div><h2>Skills</h2><div class="tags"><span class="tag">GenAI Security</span><span class="tag">RAG</span><span class="tag">OWASP LLM Top 10</span><span class="tag">Prompt Injection</span><span class="tag">LLMOps</span><span class="tag">Azure OpenAI</span><span class="tag">AWS Bedrock</span><span class="tag">APIM</span><span class="tag">Terraform</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">GitHub Actions</span></div></div>
+    </aside>
+  </div>
+  <footer>Ramya Kanderi · Senior Application Security &amp; DevSecOps Engineer · Sample data and identifiers in this project are synthetic.</footer>
+</div>
+
+</body>
+</html>
