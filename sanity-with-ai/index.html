@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SANITY with AI · Ramya Kanderi</title>
+<meta name="description" content="A human-in-the-loop AI security operations loop: AI triages, enriches and summarises; engineers decide; guardrails keep the AI itself secure.">
+<meta property="og:title" content="SANITY with AI · Ramya Kanderi">
+<meta property="og:description" content="A human-in-the-loop AI security operations loop: AI triages, enriches and summarises; engineers decide; guardrails keep the AI itself secure.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single reading column, case-study sheet — header block, metric strip, diagram plate, two-column detail */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202b; --muted:#566273; --line:#dbe0e7;
+  --accent:#1f5f8b; --accent-soft:#e6eff6; --good:#1d7a52;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f141a; --surface:#161d26; --fg:#e7ecf2; --muted:#9aa7b7; --line:#2a3542;
+  --accent:#7fb8e0; --accent-soft:#1b2a38; --good:#6fd2a2; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:40px 64px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);max-width:65ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.metric{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.metric .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--good);font-variant-numeric:tabular-nums}
+.metric .l{font-size:14px;color:var(--muted)}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.plate{background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}
+.plate img{display:block;width:100%;min-width:640px;height:auto}
+figcaption{font-size:14px;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 10px;letter-spacing:-.005em}
+section p{margin:0 0 14px;max-width:65ch}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.side{display:flex;flex-direction:column;gap:28px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:12.5px;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--fg)}
+dl.ref{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+dl.ref dt{font-family:var(--mono);color:var(--accent);font-size:13px}
+dl.ref dd{margin:0;color:var(--fg)}
+.meta a{color:var(--accent);font-weight:500}
+.back{font-size:14px;color:var(--accent);text-decoration:none;font-weight:500}.back:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+  <header>
+    <a class="back" href="../">← All projects</a>
+    <span class="eyebrow">Open-source tool · Security operations · AI guardrails</span>
+    <h1>SANITY with AI: Human-in-the-Loop Security Operations</h1>
+    <p class="lede">How AI takes the toil out of a security engineer's day. AI carries the volume of alerts, context and paperwork; the engineer keeps every judgment call. Guardrails keep the AI itself secure.</p>
+    <div class="meta"><span>Type <b>Open-source tool</b></span><span>Stack <b>Python · YAML · GitHub Actions</b></span><span>Published <b>2026</b></span><span><a href="https://github.com/mail2ramya17/sanity-with-ai">View code on GitHub →</a></span></div>
+  </header>
+  <div class="metrics"><div class="metric"><span class="n">1,798 → 10</span><span class="l">open alerts reduced to 10 ranked incidents with context</span></div><div class="metric"><span class="n">5</span><span class="l">guardrails on the AI itself, each enforced in code and tested</span></div><div class="metric"><span class="n">0</span><span class="l">actions the AI can take without a named human's approval</span></div></div>
+  <figure>
+    <div class="plate"><img src="../assets/sanity-with-ai.png" alt="Architecture: signals from SIEM, EDR, CSPM and tickets flow into AI triage, AI enrichment and an AI summary, all running under a read-only identity. A human decides to approve, reject or escalate. Approved actions run with one scoped credential each; false-positive rejections become expiring suppressions that tune the next run. Attempts by the AI to act and prompt injection in alerts are refused. Every step is written to a hash-chained audit log, and the loop produces incident timelines and compliance evidence packs."></div>
+    <figcaption>AI triages, enriches and summarises under a read-only identity. A human approves, rejects or escalates. Approved actions run with one narrowly scoped credential each, and false positives teach the next run. Every step lands in a tamper-evident audit log.</figcaption>
+  </figure>
+  <div class="cols">
+    <section>
+      <h2>What I built</h2>
+      <p>Security engineers burn out on toil: thousands of alerts that are mostly noise, a growing ticket backlog, raw logs at 3 a.m. and audit evidence gathered by screenshot. The result is missed threats, slow fixes and tired people. This project is a working loop that moves the volume to AI without handing it the decisions.</p><p>Alerts from SIEM, EDR, CSPM and tickets are de-duplicated, filtered by tuning rules that each have an owner and an expiry date, correlated across sources on the same user or host, and ranked by severity, asset criticality and confidence. Each incident is enriched with its owner, exposure and blast radius: the crown-jewel systems within reach. The AI drafts what happened, why it matters, and which actions from a fixed catalog fit. A named human approves, rejects or escalates. Approved actions run with a credential that holds only that action's permission.</p><p>The same loop builds incident timelines from alerts and chat, with secrets redacted. It also turns configuration snapshots into a hashed evidence pack mapped to SOC 2, ISO 27001 and NIST CSF. When a human rejects a false positive, it becomes an expiring suppression, so the next run is quieter.</p>
+      <h2 style="margin-top:22px">Guardrails</h2>
+      <ul class="plain"><li>Human approves every action: AI identities are refused at decide and act</li><li>Least privilege: read-only AI identity, one scoped credential per action</li><li>Prompt injection: alert text is untrusted. A planted payload is flagged, and a compromised model cannot close the incident</li><li>No secrets or PII in prompts, and only approved models</li><li>Hash-chained audit log of every suggestion, decision and action</li></ul>
+    </section>
+    <aside class="side">
+      <div><h2>The loop</h2><dl class="ref"><dt>Signals</dt><dd>SIEM · EDR · CSPM · tickets</dd><dt>Triage</dt><dd>Dedupe · noise filter · correlate</dd><dt>Enrich</dt><dd>Owner · criticality · blast radius</dd><dt>Decide</dt><dd>Named human only</dd><dt>Act</dt><dd>Scoped, approved, audited</dd><dt>Learn</dt><dd>Expiring tuning from verdicts</dd></dl></div>
+      <div><h2>Skills</h2><div class="tags"><span class="tag">Security Operations</span><span class="tag">Alert Triage</span><span class="tag">Incident Response</span><span class="tag">AI Guardrails</span><span class="tag">Prompt Injection</span><span class="tag">Least Privilege</span><span class="tag">SOAR</span><span class="tag">Compliance Automation</span><span class="tag">SOC 2</span><span class="tag">ISO 27001</span><span class="tag">Python</span><span class="tag">GitHub Actions</span></div></div>
+    </aside>
+  </div>
+  <footer>Ramya Kanderi · Senior Application Security &amp; DevSecOps Engineer · The demo dataset, names and IPs are synthetic.</footer>
+</div>
+
+</body>
+</html>
